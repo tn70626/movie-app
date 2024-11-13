@@ -58,9 +58,6 @@ function App() {
   return (
     <main>
       <h1>Home</h1>
-      <Link key={id} to={`/movie/${id}`}>
-        Movie 123
-      </Link>
       <input
         type="text"
         value={searchString}
@@ -74,17 +71,19 @@ function App() {
         movies.length > 0 &&
         movies.map((movie) => {
           return (
-            <div className="movie">
-              <h2 key={movie.id}>{movie.title}</h2>
-              <p>{movie.release_date}</p>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                alt={movie.title}
-                width="100"
-                height="auto"
-              />
-              <p>{movie.overview}</p>
-            </div>
+            <Link key={movie.id} to={`/movie/${movie.id}`}>
+              <div className="movie" key={movie.id}>
+                <h2 key={movie.id}>{movie.title}</h2>
+                <p>{movie.release_date}</p>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  alt={movie.title}
+                  width="100"
+                  height="auto"
+                />
+                <p>{movie.overview}</p>
+              </div>
+            </Link>
           );
         })}
     </main>
