@@ -1,14 +1,15 @@
 import axios from 'axios';
 import { AppDispatch } from '../store';
+
 import {
   FETCH_MOVIE_REQUEST,
   FETCH_MOVIE_SUCCESS,
   FETCH_MOVIE_FAILURE,
 } from './movieTypes';
+
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
 export const fetchMovieRequest = () => {
-  console.log('Fetching');
   return {
     type: FETCH_MOVIE_REQUEST,
   };
@@ -28,17 +29,17 @@ export const fetchMovieFailure = (error: string) => {
   };
 };
 
-export const fetchMovie = () => {
+export const fetchMovie = (movieId: string) => {
   return (dispatch: AppDispatch) => {
     dispatch(fetchMovieRequest());
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/912649?language=en-US&api_key=${apiKey}`
+        `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=${apiKey}`
       )
       .then((response) => {
-        const users = response.data;
+        const movie = response.data;
 
-        dispatch(fetchMovieSuccess(users));
+        dispatch(fetchMovieSuccess(movie));
       })
       .catch((error) => {
         dispatch(fetchMovieFailure(error.message));

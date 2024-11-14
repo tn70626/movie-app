@@ -2,13 +2,13 @@ import './App.css';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { Outlet } from 'react-router-dom';
-import Nav from './components/Nav';
+import Header from './components/Header';
 
 const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
-        <Nav />
+        <Header />
         <Outlet />
       </div>
     </Provider>

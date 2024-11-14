@@ -1,29 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Movie } from '../types/baseTypes';
-import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { fetchMovie } from '../redux/movie/movieActions';
+import { RootState } from '../redux/store';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../redux/store';
 
 const MoviePage = () => {
-  const apiKey = import.meta.env.VITE_TMDB_API_KEY;
-  const params = useParams<{ movieId: string }>();
-  const [movie, setMovie] = useState<Movie>({});
-
-  const fetchMovie = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${params.movieId}?language=en-US&api_key=${apiKey}`
-      )
-      .then((response) => {
-        const result: Movie = response.data;
-        setMovie(result);
-      })
-
-      .catch((err) => console.error(err));
-  };
+  const params = useParams<{ movieId: string | undefined }>();
+  const movie = useSelector((state: RootState) => state.movie.movie);
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    fetchMovie();
-  }, []);
+    if (params.movieId) dispatch(fetchMovie(params.movieId));
+  }, [params.movieId, dispatch]);
 
   return (
     <div>
