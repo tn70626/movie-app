@@ -6,7 +6,7 @@ import axios from 'axios';
 const MoviePage = () => {
   const apiKey = import.meta.env.VITE_TMDB_API_KEY;
   const params = useParams<{ movieId: string }>();
-  const [movie, setMovie] = useState<Movie>(null);
+  const [movie, setMovie] = useState<Movie>({});
 
   const fetchMovie = () => {
     axios

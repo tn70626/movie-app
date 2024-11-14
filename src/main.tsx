@@ -1,25 +1,12 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes/Routes';
 import './index.css';
-import App from './App.tsx';
-import MoviePage from './pages/MoviePage.tsx';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import NotFound from './pages/NotFoundPage.tsx';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: '/movie/:movieId',
-    element: <MoviePage />,
-  },
-]);
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </React.StrictMode>
 );

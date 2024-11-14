@@ -1,0 +1,47 @@
+import axios from 'axios';
+import { AppDispatch } from '../store';
+import {
+  FETCH_MOVIE_REQUEST,
+  FETCH_MOVIE_SUCCESS,
+  FETCH_MOVIE_FAILURE,
+} from './movieTypes';
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+
+export const fetchMovieRequest = () => {
+  console.log('Fetching');
+  return {
+    type: FETCH_MOVIE_REQUEST,
+  };
+};
+
+export const fetchMovieSuccess = (movieId: number) => {
+  return {
+    type: FETCH_MOVIE_SUCCESS,
+    payload: movieId,
+  };
+};
+
+export const fetchMovieFailure = (error: string) => {
+  return {
+    type: FETCH_MOVIE_FAILURE,
+    payload: error,
+  };
+};
+
+export const fetchMovie = () => {
+  return (dispatch: AppDispatch) => {
+    dispatch(fetchMovieRequest());
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/912649?language=en-US&api_key=${apiKey}`
+      )
+      .then((response) => {
+        const users = response.data;
+
+        dispatch(fetchMovieSuccess(users));
+      })
+      .catch((error) => {
+        dispatch(fetchMovieFailure(error.message));
+      });
+  };
+};
