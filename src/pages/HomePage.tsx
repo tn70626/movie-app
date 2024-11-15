@@ -51,7 +51,7 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchData();
-    fetchMovie();
+    fetchResults();
   }, []);
 
   return (

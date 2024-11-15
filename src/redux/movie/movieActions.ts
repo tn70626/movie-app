@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { AppDispatch } from '../store';
+import { Movie } from '../../types/baseTypes';
 
 import {
   FETCH_MOVIE_REQUEST,
@@ -15,10 +16,10 @@ export const fetchMovieRequest = () => {
   };
 };
 
-export const fetchMovieSuccess = (movieId: number) => {
+export const fetchMovieSuccess = (movie: Movie) => {
   return {
     type: FETCH_MOVIE_SUCCESS,
-    payload: movieId,
+    payload: movie,
   };
 };
 

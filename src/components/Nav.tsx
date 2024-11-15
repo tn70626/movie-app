@@ -4,7 +4,9 @@ const Nav = () => {
   return (
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/search">Search Page</Link>
+      <Link to={{ pathname: '/search', query: { the: 'query' } }}>
+        Search Page
+      </Link>
     </nav>
   );
 };
