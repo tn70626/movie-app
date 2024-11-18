@@ -39,12 +39,15 @@ export const updateSearchTerm = (searchTerm: string) => {
   };
 };
 
-export const fetchSearchResults = (searchTerm: string) => {
+export const fetchSearchResults = (
+  searchTerm: string,
+  page: string | null = '1'
+) => {
   return (dispatch: AppDispatch) => {
     dispatch(fetchSearchRequest(searchTerm));
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1&api_key=${apiKey}`
+        `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=${page}&api_key=${apiKey}`
       )
       .then((response) => {
         const results: Movie[] = response.data;

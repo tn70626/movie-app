@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { fetchMovie } from '../redux/movie/movieActions';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 
 type Movie = {
   adult: boolean;
@@ -21,9 +20,12 @@ type Movie = {
 };
 const HomePage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [searchString, setSearchString] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const apiKey = import.meta.env.VITE_TMDB_API_KEY;
-  const fetchData = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  const fetchPopular = () => {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`
@@ -36,35 +38,26 @@ const HomePage = () => {
       .catch((err) => console.error(err));
   };
 
-  const fetchResults = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/search/movie?query=${searchString}&include_adult=false&language=en-US&page=1&api_key=${apiKey}`
-      )
-      .then((response) => {
-        const result: Movie[] = response.data.results;
-        setMovies(result);
-      })
-
-      .catch((err) => console.error(err));
-  };
-
   useEffect(() => {
-    fetchData();
-    fetchResults();
+    fetchPopular();
   }, []);
+
+  const handleSearch = () => {
+    setSearchParams({ query: searchTerm });
+    navigate(`/search?query=${encodeURIComponent(searchTerm)}&page=1`);
+  };
 
   return (
     <main className="app">
       <h1>Home</h1>
       <input
         type="text"
-        value={searchString}
-        onChange={(e) => setSearchString(e.target.value)}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search for a movie"
       />
 
-      <button onClick={() => fetchResults()}> Search </button>
+      <button onClick={() => handleSearch()}> Search </button>
 
       {movies &&
         movies.length > 0 &&
