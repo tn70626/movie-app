@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetchMovie } from '../redux/movie/movieActions';
-import { RootState, AppDispatch } from '../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import { fetchMovie } from '../redux/movie/movieActions';
+import { AppDispatch, RootState } from '../redux/store';
 import { Movie } from '../types/baseTypes';
 
 const MoviePage = () => {

@@ -13,4 +13,11 @@ export type Movie = {
   video: false;
   vote_average: number;
   vote_count: number;
+} | null;
+
+export type SearchResult = {
+  results: Movie[];
+  totalPages: number;
+  totalResults: number;
+  page: number;
 };

@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { AppDispatch } from '../store';
-import { Movie } from '../../types/baseTypes';
 
+import { Movie } from '../../types/baseTypes';
+import { AppDispatch } from '../store';
 import {
+  FETCH_MOVIE_FAILURE,
   FETCH_MOVIE_REQUEST,
   FETCH_MOVIE_SUCCESS,
-  FETCH_MOVIE_FAILURE,
 } from './movieTypes';
 
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
@@ -35,7 +35,7 @@ export const fetchMovie = (movieId: string) => {
     dispatch(fetchMovieRequest());
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=${apiKey}`
+        `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=${apiKey}`,
       )
       .then((response) => {
         const movie = response.data;

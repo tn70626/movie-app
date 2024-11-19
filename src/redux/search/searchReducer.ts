@@ -1,11 +1,24 @@
+import { UnknownAction } from 'redux';
+
+import { Movie } from '../../types/baseTypes';
 import {
+  FETCH_SEARCH_FAILURE,
   FETCH_SEARCH_REQUEST,
   FETCH_SEARCH_SUCCESS,
-  FETCH_SEARCH_FAILURE,
 } from './searchTypes';
 
+type InitialState = {
+  loading: boolean;
+  results: Movie[];
+  error: string;
+  totalPages: number;
+  totalResults: number;
+  searchTerm: string;
+  page: number;
+};
+
 // State
-const initialState = {
+const initialState: InitialState = {
   loading: false,
   results: [],
   error: '',
@@ -15,7 +28,7 @@ const initialState = {
   page: 0,
 };
 
-const searchReducer = (state = initialState, action) => {
+const searchReducer = (state = initialState, action: UnknownAction) => {
   switch (action.type) {
     case FETCH_SEARCH_REQUEST:
       return {

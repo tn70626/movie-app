@@ -1,17 +1,26 @@
+import { UnknownAction } from 'redux';
+
+import { Movie } from '../../types/baseTypes';
 import {
+  FETCH_MOVIE_FAILURE,
   FETCH_MOVIE_REQUEST,
   FETCH_MOVIE_SUCCESS,
-  FETCH_MOVIE_FAILURE,
 } from './movieTypes';
 
+type InitialState = {
+  loading: boolean;
+  movie: Movie;
+  error: string;
+};
+
 // State
-const initialState = {
+const initialState: InitialState = {
   loading: false,
-  movie: {},
+  movie: null,
   error: '',
 };
 
-const movieReducer = (state = initialState, action) => {
+const movieReducer = (state = initialState, action: UnknownAction) => {
   switch (action.type) {
     case FETCH_MOVIE_REQUEST:
       return {

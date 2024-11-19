@@ -16,26 +16,26 @@
   @include font-display;
   font-size: toRem(32);
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: toRem(16);
 }
 
 @mixin headline2 {
   @include font-display;
   font-size: toRem(24);
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: toRem(16);
 }
 
 @mixin headline3 {
   @include font-display;
   font-size: toRem(18);
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: toRem(16);
 }
 
 @mixin headline4 {
   @include font-display;
   font-size: toRem(16);
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: toRem(16);
 }
