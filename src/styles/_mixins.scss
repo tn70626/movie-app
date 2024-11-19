@@ -1,0 +1,62 @@
+@use 'sass:math';
+// Mixin styles
+// Only define non-rendering styles
+// Mixins are automatically accessible globally within scss
+
+// Responsive Breakpoints
+$breakpoints-small: 768px;
+$breakpoints-medium: 1024px;
+$breakpoints-large: 1280px;
+$breakpoints-xlarge: 1440px;
+
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media (min-width: $breakpoints-small) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (min-width: $breakpoints-medium) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (min-width: $breakpoints-large) {
+      @content;
+    }
+  } @else if $point == xlarge {
+    @media (min-width: $breakpoints-xlarge) {
+      @content;
+    }
+  }
+}
+
+// Layout
+@mixin container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include breakpoint(small) {
+    width: 768px;
+  }
+
+  @include breakpoint(medium) {
+    width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @include breakpoint(large) {
+    width: 1280px;
+  }
+
+  @include breakpoint(xlarge) {
+    width: 1440px;
+  }
+}
+
+// Rem conversion
+@function toRem($value) {
+  $remValue: math.div($value, 16) + rem;
+  @return $remValue;
+}

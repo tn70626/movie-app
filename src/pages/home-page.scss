@@ -1,0 +1,6 @@
+.home-page {
+  @include container;
+  & {
+    font-color: $color-white;
+  }
+}

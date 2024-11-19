@@ -1,15 +1,21 @@
-import './App.css';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
 import { Outlet } from 'react-router-dom';
+
+import Footer from './components/Footer';
 import Header from './components/Header';
+import { store } from './redux/store';
+
+import './styles/app.scss';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="app">
         <Header />
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
       </div>
     </Provider>
   );

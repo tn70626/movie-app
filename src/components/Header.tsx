@@ -1,12 +1,22 @@
-import Nav from './Nav';
+import { Link } from 'react-router-dom';
+
 import logo from '../assets/logo-horizontal.svg';
+import Nav from './Nav';
+
+import './header.scss';
 
 const Header = () => {
   return (
-    <div>
-      <img src={logo} alt="The Movie Database (TMDB)" width="154" height="20" />
+    <header className="header">
+      <Link to="/">
+        <img
+          className="header__logo"
+          src={logo}
+          alt="The Movie Database (TMDB)"
+        />
+      </Link>
       <Nav />
-    </div>
+    </header>
   );
 };
 

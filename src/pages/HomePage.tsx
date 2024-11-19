@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+
 import axios from 'axios';
-import { Link, useSearchParams, useNavigate } from 'react-router-dom';
+
+import './home-page.scss';
 
 type Movie = {
   adult: boolean;
@@ -28,7 +31,7 @@ const HomePage = () => {
   const fetchPopular = () => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`
+        `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`,
       )
       .then((response) => {
         const result: Movie[] = response.data.results;
@@ -48,7 +51,7 @@ const HomePage = () => {
   };
 
   return (
-    <main className="app">
+    <div className="home-page">
       <h1>Home</h1>
       <input
         type="text"
@@ -78,7 +81,7 @@ const HomePage = () => {
             </Link>
           );
         })}
-    </main>
+    </div>
   );
 };
 

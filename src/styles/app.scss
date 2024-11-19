@@ -1,0 +1,25 @@
+// app base styles
+
+@import './_normalize.css';
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  transition: all 0.3s ease-in-out;
+}
+
+html,
+body {
+  @include font-body;
+  & {
+    background: $color-black-secondary;
+    color: $color-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: toRem(16);
+  }
+}
