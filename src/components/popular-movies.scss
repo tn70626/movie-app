@@ -1,0 +1,87 @@
+.popular-movies {
+  & {
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  &__title {
+    @include headline1;
+
+    @include container;
+  }
+
+  .movie-tiles {
+    margin-top: toRem(40);
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-left: toRem(10);
+
+    @include breakpoint(small) {
+      padding-left: calc((100% - 748px) / 2);
+    }
+
+    @include breakpoint(medium) {
+      padding-left: calc((100% - 964px) / 2);
+    }
+
+    @include breakpoint(large) {
+      padding-left: calc((100% - 1220px) / 2);
+    }
+
+    @include breakpoint(xlarge) {
+      padding-left: calc((100% - 1380px) / 2);
+    }
+
+    &__tile {
+      margin-right: toRem(10);
+      transform: scale(0.95);
+      transition: all 0.2s ease-in-out;
+      border-radius: toRem(16);
+
+      &:hover {
+        transform: scale(1);
+      }
+    }
+
+    &__poster {
+      width: toRem(160);
+      height: auto;
+      border-radius: toRem(16);
+
+      @include breakpoint(medium) {
+        width: toRem(200);
+      }
+
+      @include breakpoint(large) {
+        width: toRem(335);
+      }
+    }
+
+    &__rank {
+      @include font-display;
+      font-size: toRem(24);
+      color: $color-blue-700;
+      text-decoration: none;
+      position: absolute;
+      padding: 12px 12px 12px 24px;
+      @include color-gradient-primary;
+      bottom: toRem(35);
+      right: 0;
+      border-radius: 50px 0 0 50px;
+
+      @include breakpoint(medium) {
+        font-size: toRem(32);
+        bottom: toRem(24);
+        padding: 16px 16px 16px 40px;
+      }
+
+      @include breakpoint(large) {
+        font-size: toRem(46);
+        bottom: toRem(35);
+        padding: 20px 20px 20px 60px;
+      }
+    }
+  }
+}

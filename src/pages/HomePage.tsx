@@ -5,8 +5,9 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 import heroMain from '../assets/hero-main.png';
+import PopularMovies from '../components/PopularMovies';
 import { fetchPopular } from '../redux/popular/popularActions';
-import { AppDispatch, RootState } from '../redux/store';
+import { AppDispatch, AppStore, RootState } from '../redux/store';
 import { Movie } from '../types/baseTypes';
 
 import './home-page.scss';
@@ -18,7 +19,7 @@ const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const popular = useSelector((state: RootState) => state.popular);
+  const popular = useSelector((state?: RootState) => state.popular);
 
   useEffect(() => {
     dispatch(fetchPopular());
@@ -55,25 +56,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      {popular.movies &&
-        popular.movies.length > 0 &&
-        popular.movies.map((movie) => {
-          return (
-            <Link key={movie.id} to={`/movie/${movie.id}`}>
-              <div className="movie" key={movie.id}>
-                <h2 key={movie.id}>{movie.title}</h2>
-                <p>{movie.release_date}</p>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  alt={movie.title}
-                  width="100"
-                  height="auto"
-                />
-                <p>{movie.overview}</p>
-              </div>
-            </Link>
-          );
-        })}
+      <PopularMovies movies={popular.movies} loading={popular.loading} />
     </div>
   );
 };

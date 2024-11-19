@@ -5,6 +5,7 @@
     justify-content: space-between;
     padding-top: 20px;
     padding-bottom: 20px;
+    align-items: center;
   }
   @include breakpoint(large) {
     padding-top: 32px;
@@ -15,7 +16,7 @@
     height: 20px;
     width: auto;
 
-    @include breakpoint(medium) {
+    @include breakpoint(small) {
       height: 36px;
       width: auto;
     }

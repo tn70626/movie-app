@@ -35,6 +35,7 @@ $breakpoints-xlarge: 1440px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+  transition: all 0.3s ease-in-out;
 
   @include breakpoint(small) {
     width: 768px;
@@ -44,14 +45,17 @@ $breakpoints-xlarge: 1440px;
     width: 1024px;
     padding-left: 40px;
     padding-right: 40px;
+    margin: 0 auto;
   }
 
   @include breakpoint(large) {
     width: 1280px;
+    margin: 0 auto;
   }
 
   @include breakpoint(xlarge) {
     width: 1440px;
+    margin: 0 auto;
   }
 }
 

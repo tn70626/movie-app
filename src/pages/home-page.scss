@@ -19,10 +19,11 @@
 
   &__hero-image {
     max-width: 90%;
-    margin: toRem(-40) 0 toRem(-60);
+    margin: toRem(-20) 0;
 
     @include breakpoint(medium) {
       max-width: 100%;
+      margin: toRem(-40) 0 toRem(-60);
     }
   }
 
@@ -41,9 +42,11 @@
       text-align: center;
       margin: 0 0 toRem(40);
     }
+    @include breakpoint(small) {
+      @include headline2;
+    }
     @include breakpoint(medium) {
       @include headline1;
-      // margin: toRem(-40) 0 toRem(40);
     }
   }
 }

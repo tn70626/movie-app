@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import useBreakpoints from '../hooks/useBreakpoints';
 
@@ -8,10 +8,21 @@ const Nav = () => {
   const { active } = useBreakpoints();
   return (
     <nav className="nav">
-      <p>active: {active}</p>
-      {active === 'sm' ? <h2>mobile nav</h2> : <p>desktop nav</p>}
-      <Link to="/">Home</Link>
-      <Link to="/search">Search Page</Link>
+      {active === 'sm' ? (
+        <h2>mobile nav</h2>
+      ) : (
+        <ul className="nav__ul">
+          <li className="nav__li">
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li className="nav__li">
+            <NavLink to="/search">Search Page</NavLink>
+          </li>
+          <li className="nav__li">
+            <a href="#">TV Shows</a>
+          </li>
+        </ul>
+      )}
     </nav>
   );
 };

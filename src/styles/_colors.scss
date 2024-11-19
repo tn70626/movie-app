@@ -10,3 +10,14 @@ $color-blue-700: #1c1176;
 $color-blue-500: #01b4e4;
 
 $color-teal-500: #1ed5a9;
+
+// Gradients
+
+@mixin color-gradient-primary {
+  background: rgb(30, 213, 169);
+  background: linear-gradient(
+    90deg,
+    rgba(30, 213, 169, 1) 0%,
+    rgba(1, 180, 228, 1) 100%
+  );
+}

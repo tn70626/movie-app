@@ -1,2 +1,29 @@
 .nav {
+  display: flex;
+
+  &__ul {
+    display: flex;
+  }
+
+  &__li {
+    list-style-type: none;
+
+    a {
+      @include font-display;
+      color: $color-white;
+      text-decoration: none;
+      padding: toRem(8) toRem(16);
+      transition: none;
+      border-radius: toRem(16);
+      margin: 0 toRem(2);
+
+      &:hover,
+      &.active,
+      &:focus {
+        color: $color-blue-700;
+        cursor: pointer;
+        @include color-gradient-primary;
+      }
+    }
+  }
 }

@@ -1,12 +1,20 @@
 import { UnknownAction } from 'redux';
 
+import { Movie } from '../../types/baseTypes';
 import {
   FETCH_POPULAR_FAILURE,
   FETCH_POPULAR_REQUEST,
   FETCH_POPULAR_SUCCESS,
 } from './popularTypes';
+
+type InitialState = {
+  loading: boolean;
+  movies: Movie[];
+  error: string;
+};
+
 // State
-const initialState = {
+const initialState: InitialState = {
   loading: false,
   movies: [],
   error: '',
