@@ -25,6 +25,7 @@ body {
 
 p {
   font-size: toRem(16);
+  line-height: 1.2;
 
   @include breakpoint(small) {
     font-size: toRem(18);

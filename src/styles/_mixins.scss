@@ -77,6 +77,13 @@ $breakpoints-xlarge: 1440px;
   color: $color-blue-700;
   @include color-gradient-primary;
   display: inline-block;
+  font-size: toRem(16);
+
+  @include breakpoint(medium) {
+    font-size: toRem(24);
+    padding: toRem(12) toRem(32);
+    border-radius: toRem(26);
+  }
 
   &:hover,
   &.active,

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { fetchFeatureMovie } from '../redux/featuredMovie/featuredMovieActions';
-import { AppDispatch, AppStore } from '../redux/store';
+import { AppDispatch, AppStore, RootState } from '../redux/store';
 
 import './featured-movie.scss';
 
@@ -15,7 +15,7 @@ const FeaturedMovie = () => {
     dispatch(fetchFeatureMovie(`${movieId}`));
   }, [dispatch]);
 
-  const { featuredMovie } = useSelector<AppStore>((store) => store);
+  const featuredMovie = useSelector<AppStore>((state) => state.featuredMovie);
 
   return (
     <div className="featured-movie">

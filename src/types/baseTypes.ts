@@ -13,7 +13,7 @@ export type Movie = {
   video: false;
   vote_average: number;
   vote_count: number;
-};
+} | null;
 
 export type SearchResult = {
   results: Movie[];
@@ -22,8 +22,8 @@ export type SearchResult = {
   page: number;
 };
 
-export type FeaturedMovie = {
+export type FeaturedMovieType = {
   loading: boolean;
-  movie: Movie | null;
+  movie: Movie;
   error: string;
 };

@@ -1,33 +1,29 @@
-.home-page {
-  color: $color-white;
+.hero {
+  background: url('../assets/hero-bg.jpg') no-repeat;
+  background-size: auto 300px;
+  background-position: top center;
+  margin-bottom: 40px;
+  overflow: hidden;
 
-  &__hero {
-    background: url('../src/assets/hero-bg.jpg') no-repeat;
-    background-size: auto 300px;
-    background-position: top center;
-    margin-bottom: 40px;
-    overflow: hidden;
-
-    @include breakpoint(small) {
-      background-size: auto 400px;
-    }
-
-    @include breakpoint(medium) {
-      background-size: auto 630px;
-    }
+  @include breakpoint(small) {
+    background-size: auto 400px;
   }
 
-  &__hero-image {
+  @include breakpoint(medium) {
+    background-size: auto 630px;
+  }
+
+  &__image {
     max-width: 90%;
     margin: toRem(-20) 0;
 
     @include breakpoint(medium) {
       max-width: 100%;
-      margin: toRem(-40) 0 toRem(-60);
+      margin: toRem(-60) 0;
     }
   }
 
-  &__hero-container {
+  &__container {
     @include container;
     & {
       display: flex;

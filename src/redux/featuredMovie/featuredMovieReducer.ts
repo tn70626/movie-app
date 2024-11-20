@@ -1,14 +1,20 @@
 import { UnknownAction } from 'redux';
 
-import { FeaturedMovie } from '../../types/baseTypes';
+import { Movie } from '../../types/baseTypes';
 import {
   FETCH_FEATURED_MOVIE_FAILURE,
   FETCH_FEATURED_MOVIE_REQUEST,
   FETCH_FEATURED_MOVIE_SUCCESS,
 } from './featuredMovieTypes';
 
+type FeaturedMovieType = {
+  loading: boolean;
+  movie: Movie;
+  error: string;
+};
+
 // State
-const initialState: FeaturedMovie = {
+const initialState: FeaturedMovieType = {
   loading: false,
   movie: null,
   error: '',

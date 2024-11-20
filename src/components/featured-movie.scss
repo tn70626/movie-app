@@ -35,8 +35,18 @@
   }
 
   &__content {
+    margin-left: toRem(32);
+
     @include breakpoint(medium) {
-      margin-left: toRem(32);
+      margin-left: toRem(40);
+    }
+  }
+
+  &__title {
+    @include headline2;
+
+    @include breakpoint(medium) {
+      @include headline1;
     }
   }
 

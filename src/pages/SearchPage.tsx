@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { fetchSearchResults } from '../redux/search/searchActions';
-import { RootState, AppDispatch } from '../redux/store';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Movie } from '../types/baseTypes';
+
 import Pagination from '../components/Pagination';
-import ReactPaginate from 'react-paginate';
+import { fetchSearchResults } from '../redux/search/searchActions';
+import { AppDispatch, RootState } from '../redux/store';
+import { Movie } from '../types/baseTypes';
 
 const SearchPage = () => {
   const search = useSelector((state: RootState) => state.search);
@@ -46,23 +46,6 @@ const SearchPage = () => {
       )}
       <p>Pagination</p>
 
-      {/* <ReactPaginate
-        breakLabel="..."
-        nextLabel="Next"
-        onPageChange={(page) => handlePageClick(`${page.selected + 1}`)}
-        pageRangeDisplayed={3}
-        pageCount={search.totalPages}
-        previousLabel="Previous"
-        renderOnZeroPageCount={null}
-        marginPagesDisplayed={1}
-        containerClassName="pagination"
-        pageLinkClassName="pagination__link"
-        pageClassName="pagination__page"
-        activeClassName="pagination__page--active"
-        activeLinkClassName="pagination__link--active"
-        disabledLinkClassName="pagination__link--disabled"
-      /> */}
-
       <Pagination
         onPageChange={handlePageClick}
         pageCount={search.totalPages}
@@ -74,7 +57,7 @@ const SearchPage = () => {
         search.results.length > 0 &&
         search.results.map((movie: Movie) => {
           return (
-            <div className="search-page__results">
+            <div key={movie.id} className="search-page__results">
               <Link key={movie.id} to={`/movie/${movie.id}`}>
                 <div className="movie" key={movie.id}>
                   <h2 key={movie.id}>{movie.title}</h2>
