@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useSearchParams } from 'react-router-dom';
 
+import HeroSearch from '../components/HeroSearch';
 import Pagination from '../components/Pagination';
 import SearchBar from '../components/SearchBar';
 import { fetchSearchResults } from '../redux/search/searchActions';
@@ -28,13 +29,10 @@ const SearchPage = () => {
 
   return (
     <div className="search-page">
-      <SearchBar />
-
-      {search.totalResults && search.searchTerm && (
-        <h2>
-          {search.totalResults} search results for “{search.searchTerm}”
-        </h2>
-      )}
+      <HeroSearch
+        totalResults={search.totalResults}
+        searchTerm={search.searchTerm}
+      />
       <p>Pagination</p>
 
       <Pagination
