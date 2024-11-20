@@ -21,3 +21,9 @@ export type SearchResult = {
   totalResults: number;
   page: number;
 };
+
+export type FeaturedMovie = {
+  loading: boolean;
+  movie: Movie | null;
+  error: string;
+};

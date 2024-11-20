@@ -5,6 +5,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 import heroMain from '../assets/hero-main.png';
+import FeaturedMovie from '../components/FeaturedMovie';
 import PopularMovies from '../components/PopularMovies';
 import { fetchPopular } from '../redux/popular/popularActions';
 import { AppDispatch, AppStore, RootState } from '../redux/store';
@@ -57,6 +58,8 @@ const HomePage = () => {
       </div>
 
       <PopularMovies movies={popular.movies} loading={popular.loading} />
+
+      <FeaturedMovie />
     </div>
   );
 };

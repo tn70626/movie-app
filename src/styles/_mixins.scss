@@ -64,3 +64,40 @@ $breakpoints-xlarge: 1440px;
   $remValue: math.div($value, 16) + rem;
   @return $remValue;
 }
+
+// buttons
+
+@mixin button-small {
+  @include font-display;
+  color: $color-white;
+  text-decoration: none;
+  padding: toRem(8) toRem(20);
+  border-radius: toRem(20);
+  cursor: pointer;
+  color: $color-blue-700;
+  @include color-gradient-primary;
+  display: inline-block;
+
+  &:hover,
+  &.active,
+  &:focus {
+    background: $color-blue-500;
+  }
+}
+
+@mixin button-nav-small {
+  @include font-display;
+  color: $color-white;
+  text-decoration: none;
+  padding: toRem(8) toRem(20);
+  border-radius: toRem(20);
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover,
+  &.active,
+  &:focus {
+    color: $color-blue-700;
+    @include color-gradient-primary;
+  }
+}

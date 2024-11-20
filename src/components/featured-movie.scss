@@ -1,0 +1,49 @@
+.featured-movie {
+  @include container;
+
+  &__heading {
+    @include headline1;
+
+    & {
+      margin-bottom: toRem(40);
+    }
+  }
+
+  &__container {
+    @include breakpoint(medium) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__image-wrapper {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: toRem(200);
+
+    @include breakpoint(medium) {
+      width: 60%;
+      height: auto;
+      flex-shrink: 0;
+    }
+  }
+  &__image {
+    width: auto;
+    height: toRem(450);
+  }
+
+  &__content {
+    @include breakpoint(medium) {
+      margin-left: toRem(32);
+    }
+  }
+
+  &__link {
+    @include button-small;
+    & {
+      margin-top: toRem(16);
+    }
+  }
+}

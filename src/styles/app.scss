@@ -22,3 +22,11 @@ body {
     font-size: toRem(16);
   }
 }
+
+p {
+  font-size: toRem(16);
+
+  @include breakpoint(small) {
+    font-size: toRem(18);
+  }
+}
