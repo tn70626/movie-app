@@ -12,9 +12,7 @@ const Hero = () => {
           Millions of movies, TV shows and people to discover. Explore now.
         </h1>
 
-        <div className="hero__search">
-          <SearchBar />
-        </div>
+        <SearchBar />
       </div>
     </div>
   );

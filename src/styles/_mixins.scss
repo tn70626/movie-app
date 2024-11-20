@@ -67,23 +67,30 @@ $breakpoints-xlarge: 1440px;
 
 // buttons
 
-@mixin button-small {
+@mixin button-primary($size: '') {
   @include font-display;
-  color: $color-white;
   text-decoration: none;
-  padding: toRem(8) toRem(20);
-  border-radius: toRem(20);
   cursor: pointer;
   color: $color-blue-700;
   @include color-gradient-primary;
   display: inline-block;
-  font-size: toRem(16);
+  border: none;
 
-  @include breakpoint(medium) {
+  @if $size == 'large' {
     font-size: toRem(24);
     padding: toRem(12) toRem(32);
     border-radius: toRem(26);
+  } @else {
+    font-size: toRem(16);
+    padding: toRem(12) toRem(16);
+    border-radius: toRem(25);
   }
+
+  // @include breakpoint(medium) {
+  //   font-size: toRem(24);
+  //   padding: toRem(12) toRem(32);
+  //   border-radius: toRem(26);
+  // }
 
   &:hover,
   &.active,
@@ -99,6 +106,7 @@ $breakpoints-xlarge: 1440px;
   padding: toRem(8) toRem(20);
   border-radius: toRem(20);
   cursor: pointer;
+  border: none;
   display: inline-block;
 
   &:hover,

@@ -2,11 +2,11 @@
   background: url('../assets/hero-bg.jpg') no-repeat;
   background-size: auto 300px;
   background-position: top center;
-  margin-bottom: 40px;
+  margin-bottom: toRem(40);
   overflow: hidden;
 
   @include breakpoint(small) {
-    background-size: auto 400px;
+    background-size: auto toRem(400);
   }
 
   @include breakpoint(medium) {
@@ -36,10 +36,11 @@
     @include headline3;
     & {
       text-align: center;
-      margin: 0 0 toRem(40);
+      margin: 0 0 toRem(20);
     }
     @include breakpoint(small) {
       @include headline2;
+      margin: 0 0 toRem(40);
     }
     @include breakpoint(medium) {
       @include headline1;

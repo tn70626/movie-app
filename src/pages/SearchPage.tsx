@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useSearchParams } from 'react-router-dom';
 
 import Pagination from '../components/Pagination';
+import SearchBar from '../components/SearchBar';
 import { fetchSearchResults } from '../redux/search/searchActions';
 import { AppDispatch, RootState } from '../redux/store';
 import { Movie } from '../types/baseTypes';
 
 const SearchPage = () => {
   const search = useSelector((state: RootState) => state.search);
-  const [searchTerm, setSearchTerm] = useState<string>(search.searchTerm);
   const dispatch = useDispatch<AppDispatch>();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -28,16 +28,7 @@ const SearchPage = () => {
 
   return (
     <div className="search-page">
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search for a movie"
-      />
-
-      <button onClick={() => setSearchParams({ query: searchTerm, page: '1' })}>
-        Search
-      </button>
+      <SearchBar />
 
       {search.totalResults && search.searchTerm && (
         <h2>

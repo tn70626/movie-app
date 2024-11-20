@@ -15,8 +15,11 @@ const Nav = () => {
           <li className="nav__li">
             <NavLink to="/">Home</NavLink>
           </li>
-          <li className="nav__li">
+          {/* <li className="nav__li">
             <NavLink to="/search">Search Page</NavLink>
+          </li> */}
+          <li className="nav__li">
+            <a href="#">Movies</a>
           </li>
           <li className="nav__li">
             <a href="#">TV Shows</a>

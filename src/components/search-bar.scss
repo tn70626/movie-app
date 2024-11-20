@@ -1,0 +1,44 @@
+.search-bar {
+  position: relative;
+  max-width: toRem(460);
+  width: 100%;
+  margin: 0 auto;
+
+  @include breakpoint(medium) {
+    max-width: toRem(768);
+  }
+
+  &__input {
+    font-size: toRem(16);
+    padding: toRem(16) toRem(90) toRem(16) toRem(24);
+    border-radius: toRem(30);
+    position: relative;
+    width: 100%;
+    border: none;
+    color: $color-black;
+
+    &:focus,
+    &:focus-within,
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 toRem(2) $color-blue-500;
+    }
+
+    @include breakpoint(medium) {
+      font-size: toRem(20);
+      padding: toRem(18) toRem(140) toRem(18) toRem(40);
+      border-radius: toRem(30);
+    }
+  }
+
+  &__button {
+    @include button-primary('small');
+    position: absolute;
+    right: toRem(4);
+    top: toRem(4);
+
+    @include breakpoint(medium) {
+      @include button-primary('large');
+    }
+  }
+}
