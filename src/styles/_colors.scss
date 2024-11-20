@@ -21,3 +21,15 @@ $color-teal-500: #1ed5a9;
     rgba(1, 180, 228, 1) 100%
   );
 }
+
+@mixin color-gradient-border {
+  border-top: 1px solid $color-blue-500;
+  border-image: $color-blue-500;
+  border-image: linear-gradient(
+      to right,
+      $color-black-secondary 0%,
+      $color-blue-500 50%,
+      $color-black-secondary 100%
+    )
+    1;
+}
