@@ -12,7 +12,7 @@ const HeroSearch = ({ totalResults, searchTerm }: PropsTypes) => {
       <div className="hero-search__container">
         <SearchBar />
         <h1 className="hero-search__heading">
-          {totalResults && searchTerm
+          {searchTerm
             ? `${totalResults} search results for ${searchTerm}`
             : 'Millions of movies, TV shows and people to discover. Explore now.'}
         </h1>

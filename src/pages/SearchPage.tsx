@@ -4,13 +4,15 @@ import { Link, useSearchParams } from 'react-router-dom';
 
 import HeroSearch from '../components/HeroSearch';
 import Pagination from '../components/Pagination';
-import SearchBar from '../components/SearchBar';
+import SearchResults from '../components/SearchResults';
 import { fetchSearchResults } from '../redux/search/searchActions';
 import { AppDispatch, RootState } from '../redux/store';
 import { Movie } from '../types/baseTypes';
 
 const SearchPage = () => {
-  const search = useSelector((state: RootState) => state.search);
+  const search = useSelector<RootState, RootState['search']>(
+    (state) => state.search,
+  );
   const dispatch = useDispatch<AppDispatch>();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -33,40 +35,20 @@ const SearchPage = () => {
         totalResults={search.totalResults}
         searchTerm={search.searchTerm}
       />
-      <p>Pagination</p>
 
-      <Pagination
-        onPageChange={handlePageClick}
-        pageCount={search.totalPages}
-      />
+      <div className="search-page__results">
+        {search.loading ? (
+          <p>is loading</p>
+        ) : (
+          <SearchResults movies={search.results} />
+        )}
+      </div>
 
-      {search.loading ? (
-        <p>is loading</p>
-      ) : (
-        search.results.length > 0 &&
-        search.results.map((movie: Movie) => {
-          return (
-            <div key={movie.id} className="search-page__results">
-              <Link key={movie.id} to={`/movie/${movie.id}`}>
-                <div className="movie" key={movie.id}>
-                  <h2 key={movie.id}>{movie.title}</h2>
-                  <p>{movie.release_date}</p>
-                  {movie.poster_path ? (
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                      alt={movie.title}
-                      width="100"
-                      height="auto"
-                    />
-                  ) : (
-                    '[no image available]'
-                  )}
-                  <p>{movie.overview}</p>
-                </div>
-              </Link>
-            </div>
-          );
-        })
+      {search.totalPages > 1 && (
+        <Pagination
+          onPageChange={handlePageClick}
+          pageCount={search.totalPages}
+        />
       )}
     </div>
   );

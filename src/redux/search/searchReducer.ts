@@ -7,7 +7,7 @@ import {
   FETCH_SEARCH_SUCCESS,
 } from './searchTypes';
 
-type InitialState = {
+type SearchReducerState = {
   loading: boolean;
   results: Movie[];
   error: string;
@@ -18,7 +18,7 @@ type InitialState = {
 };
 
 // State
-const initialState: InitialState = {
+const initialState: SearchReducerState = {
   loading: false,
   results: [],
   error: '',
@@ -28,7 +28,7 @@ const initialState: InitialState = {
   page: 0,
 };
 
-const searchReducer = (state = initialState, action: UnknownAction) => {
+const searchReducer = (state: SearchReducerState = initialState, action) => {
   switch (action.type) {
     case FETCH_SEARCH_REQUEST:
       return {

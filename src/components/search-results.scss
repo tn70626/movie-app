@@ -1,0 +1,54 @@
+.search-results {
+  @include container;
+  padding-top: toRem(40);
+  padding-bottom: toRem(40);
+
+  @include breakpoint(large) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__movie {
+    width: 100%;
+    color: $color-white;
+    text-decoration: none;
+    display: flex;
+    margin-bottom: toRem(36);
+    align-items: flex-start;
+    border: 2px solid transparent;
+    border-radius: toRem(16);
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    padding-right: toRem(16);
+
+    &:hover {
+      border-color: $color-blue-500;
+
+      .search-results__movie-poster {
+        transform: scale(1.05);
+      }
+    }
+
+    @include breakpoint(large) {
+      width: 48%;
+    }
+  }
+
+  &__movie-poster {
+    width: toRem(120);
+    height: auto;
+    margin-right: toRem(24);
+    // border-radius: toRem(16);
+    transition: all 0.2s ease-in-out;
+    background: $color-gray-400;
+
+    @include breakpoint(large) {
+      width: toRem(188);
+    }
+  }
+
+  &__movie-title {
+    @include headline2;
+  }
+}
