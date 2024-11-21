@@ -1,15 +1,16 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Movie } from '../types/baseTypes';
 
 import './popular-movies.scss';
 
-type Props = {
+type PopularMoviesProps = {
   movies: Movie[];
   loading: boolean;
 };
 
-const PopularMovies = ({ movies, loading }: Props) => {
+const PopularMovies: React.FC<PopularMoviesProps> = ({ movies, loading }) => {
   const renderMovies = (movies: Movie[]) => {
     if (movies.length) {
       return (

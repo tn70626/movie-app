@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,7 +8,7 @@ import PopularMovies from '../components/PopularMovies';
 import { fetchPopular } from '../redux/popular/popularActions';
 import { AppDispatch, RootState } from '../redux/store';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const popular = useSelector<RootState, RootState['popular']>(
     (state) => state.popular,

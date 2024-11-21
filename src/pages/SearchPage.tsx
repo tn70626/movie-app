@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
@@ -8,7 +9,7 @@ import SearchResults from '../components/SearchResults';
 import { fetchSearchResults } from '../redux/search/searchActions';
 import { AppDispatch, RootState } from '../redux/store';
 
-const SearchPage = () => {
+const SearchPage: React.FC = () => {
   const search = useSelector<RootState, RootState['search']>(
     (state) => state.search,
   );

@@ -1,10 +1,11 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import useBreakpoints from '../hooks/useBreakpoints';
 
 import './nav.scss';
 
-const Nav = () => {
+const Nav: React.FC = () => {
   const { active } = useBreakpoints();
   return (
     <nav className="nav">

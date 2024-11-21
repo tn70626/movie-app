@@ -1,13 +1,14 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { fetchFeatureMovie } from '../redux/featuredMovie/featuredMovieActions';
-import { AppDispatch, AppStore, RootState } from '../redux/store';
+import { AppDispatch, RootState } from '../redux/store';
 
 import './featured-movie.scss';
 
-const FeaturedMovie = () => {
+const FeaturedMovie: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const movieId = 698687;
 
@@ -15,7 +16,9 @@ const FeaturedMovie = () => {
     dispatch(fetchFeatureMovie(`${movieId}`));
   }, [dispatch]);
 
-  const featuredMovie = useSelector<AppStore>((state) => state.featuredMovie);
+  const featuredMovie = useSelector<RootState, RootState['featuredMovie']>(
+    (state) => state.featuredMovie,
+  );
 
   return (
     <div className="featured-movie">

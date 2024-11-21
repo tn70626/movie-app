@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import noImage from '../assets/no-image.svg';
@@ -10,7 +11,7 @@ import './search-results.scss';
 type SearchResultsProps = {
   movies: Movie[];
 };
-const SearchResults = ({ movies }: SearchResultsProps) => {
+const SearchResults: React.FC<SearchResultsProps> = ({ movies }) => {
   const formatDate = (date: string) => UseFormatDate(date);
   const { active } = useBreakpoints();
 

@@ -1,9 +1,11 @@
+import React from 'react';
+
 import heroMain from '../assets/hero-main.png';
 import SearchBar from './SearchBar';
 
 import './hero.scss';
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <div className="hero">
       <div className="hero__container">

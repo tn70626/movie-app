@@ -1,10 +1,11 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Logo from '../assets/logo-stacked.svg';
 
 import './footer.scss';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <Link to="/" className="footer__logo">

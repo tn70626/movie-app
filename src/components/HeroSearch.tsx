@@ -1,12 +1,17 @@
+import React from 'react';
+
 import SearchBar from './SearchBar';
 
 import './hero-search.scss';
 
-type PropsTypes = {
+type HeroSearchProps = {
   totalResults: number;
   searchTerm: string;
 };
-const HeroSearch = ({ totalResults, searchTerm }: PropsTypes) => {
+const HeroSearch: React.FC<HeroSearchProps> = ({
+  totalResults,
+  searchTerm,
+}) => {
   return (
     <div className="hero-search">
       <div className="hero-search__container">
