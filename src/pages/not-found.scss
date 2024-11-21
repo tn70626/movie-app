@@ -1,0 +1,27 @@
+.not-found {
+  &__container {
+    @include container;
+    text-align: center;
+    margin: toRem(40) 0;
+
+    & {
+      height: 400px;
+    }
+  }
+  &__heading {
+    @include headline2;
+    margin: toRem(40) 0;
+
+    @include breakpoint(medium) {
+      @include headline1;
+    }
+  }
+
+  &__link {
+    @include button-primary;
+  }
+
+  &__image {
+    max-width: 100%;
+  }
+}

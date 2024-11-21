@@ -89,7 +89,6 @@ export type fetchMovieFailureAction = {
 
 export type fetchMovieRequestAction = {
   type: typeof FETCH_MOVIE_REQUEST;
-  payload: string;
 };
 
 export type fetchMovieSuccessAction = {
