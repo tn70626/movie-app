@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { Dispatch } from 'redux';
 
 import { Movie } from '../../types/baseTypes';
-import { AppDispatch } from '../store';
+import { AppActions } from '../../types/reduxTypes';
 import {
   FETCH_POPULAR_FAILURE,
   FETCH_POPULAR_REQUEST,
@@ -10,20 +11,20 @@ import {
 
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
-export const fetchPopularRequest = () => {
+export const fetchPopularRequest = (): AppActions => {
   return {
     type: FETCH_POPULAR_REQUEST,
   };
 };
 
-export const fetchPopularSuccess = (movies: Movie[]) => {
+export const fetchPopularSuccess = (movies: Movie[]): AppActions => {
   return {
     type: FETCH_POPULAR_SUCCESS,
     payload: movies,
   };
 };
 
-export const fetchPopularFailure = (error: string) => {
+export const fetchPopularFailure = (error: string): AppActions => {
   return {
     type: FETCH_POPULAR_FAILURE,
     payload: error,
@@ -31,7 +32,7 @@ export const fetchPopularFailure = (error: string) => {
 };
 
 export const fetchPopular = () => {
-  return (dispatch: AppDispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch(fetchPopularRequest());
     axios
       .get(

@@ -1,26 +1,28 @@
-import { UnknownAction } from 'redux';
-
 import { Movie } from '../../types/baseTypes';
+import { FeaturedMovieActionTypes } from '../../types/reduxTypes';
 import {
   FETCH_FEATURED_MOVIE_FAILURE,
   FETCH_FEATURED_MOVIE_REQUEST,
   FETCH_FEATURED_MOVIE_SUCCESS,
 } from './featuredMovieTypes';
 
-type FeaturedMovieType = {
+export type FeaturedMovieState = {
   loading: boolean;
-  movie: Movie;
+  movie: Movie | null;
   error: string;
 };
 
 // State
-const initialState: FeaturedMovieType = {
+const initialState: FeaturedMovieState = {
   loading: false,
   movie: null,
   error: '',
 };
 
-const featuredMovieReducer = (state = initialState, action: UnknownAction) => {
+export const featuredMovieReducer = (
+  state = initialState,
+  action: FeaturedMovieActionTypes,
+): FeaturedMovieState => {
   switch (action.type) {
     case FETCH_FEATURED_MOVIE_REQUEST:
       return {
@@ -39,12 +41,10 @@ const featuredMovieReducer = (state = initialState, action: UnknownAction) => {
       return {
         ...state,
         loading: false,
-        movie: {},
+        movie: null,
         error: action.payload,
       };
     default:
       return state;
   }
 };
-
-export default featuredMovieReducer;

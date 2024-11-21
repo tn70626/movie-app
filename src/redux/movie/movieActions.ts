@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { Movie } from '../../types/baseTypes';
+import { AppActions } from '../../types/reduxTypes';
 import { AppDispatch } from '../store';
 import {
   FETCH_MOVIE_FAILURE,
@@ -10,20 +11,20 @@ import {
 
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
-export const fetchMovieRequest = () => {
+export const fetchMovieRequest = (): AppActions => {
   return {
     type: FETCH_MOVIE_REQUEST,
   };
 };
 
-export const fetchMovieSuccess = (movie: Movie) => {
+export const fetchMovieSuccess = (movie: Movie): AppActions => {
   return {
     type: FETCH_MOVIE_SUCCESS,
     payload: movie,
   };
 };
 
-export const fetchMovieFailure = (error: string) => {
+export const fetchMovieFailure = (error: string): AppActions => {
   return {
     type: FETCH_MOVIE_FAILURE,
     payload: error,

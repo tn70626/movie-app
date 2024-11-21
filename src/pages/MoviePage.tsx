@@ -8,7 +8,9 @@ import { Movie } from '../types/baseTypes';
 
 const MoviePage = () => {
   const params = useParams<{ movieId: string | undefined }>();
-  const movie: Movie = useSelector((state: RootState) => state.movie.movie);
+  const movie = useSelector(
+    (state: RootState): Movie | null => state.movie.movie,
+  );
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {

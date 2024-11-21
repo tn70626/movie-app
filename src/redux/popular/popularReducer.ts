@@ -1,11 +1,12 @@
 import { Movie } from '../../types/baseTypes';
+import { PopularActionTypes } from '../../types/reduxTypes';
 import {
   FETCH_POPULAR_FAILURE,
   FETCH_POPULAR_REQUEST,
   FETCH_POPULAR_SUCCESS,
 } from './popularTypes';
 
-type PopularState = {
+export type PopularState = {
   loading: boolean;
   movies: Movie[];
   error: string;
@@ -18,9 +19,9 @@ const initialState: PopularState = {
   error: '',
 };
 
-const popularReducer = (
+export const popularReducer = (
   state: PopularState = initialState,
-  action,
+  action: PopularActionTypes,
 ): PopularState => {
   switch (action.type) {
     case FETCH_POPULAR_REQUEST:
@@ -48,5 +49,3 @@ const popularReducer = (
       return state;
   }
 };
-
-export default popularReducer;

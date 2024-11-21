@@ -17,8 +17,8 @@ export type Movie = {
 
 export type SearchResult = {
   results: Movie[];
-  totalPages: number;
-  totalResults: number;
+  total_pages: number;
+  total_results: number;
   page: number;
 };
 

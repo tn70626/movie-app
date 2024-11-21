@@ -1,41 +1,34 @@
 import axios from 'axios';
 
 import { SearchResult } from '../../types/baseTypes';
+import { AppActions } from '../../types/reduxTypes';
 import { AppDispatch } from '../store';
 import {
   FETCH_SEARCH_FAILURE,
   FETCH_SEARCH_REQUEST,
   FETCH_SEARCH_SUCCESS,
-  UPDATE_SEARCH_TERM,
 } from './searchTypes';
 
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
-export const fetchSearchRequest = (searchTerm: string) => {
+export const fetchSearchRequest = (searchTerm: string): AppActions => {
   return {
     type: FETCH_SEARCH_REQUEST,
     payload: searchTerm,
   };
 };
 
-export const fetchSearchSuccess = (payload: SearchResult) => {
+export const fetchSearchSuccess = (payload: SearchResult): AppActions => {
   return {
     type: FETCH_SEARCH_SUCCESS,
     payload: payload,
   };
 };
 
-export const fetchSearchFailure = (error: string) => {
+export const fetchSearchFailure = (error: string): AppActions => {
   return {
     type: FETCH_SEARCH_FAILURE,
     payload: error,
-  };
-};
-
-export const updateSearchTerm = (searchTerm: string) => {
-  return {
-    type: UPDATE_SEARCH_TERM,
-    payload: searchTerm,
   };
 };
 
