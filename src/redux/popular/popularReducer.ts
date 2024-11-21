@@ -1,5 +1,3 @@
-import { UnknownAction } from 'redux';
-
 import { Movie } from '../../types/baseTypes';
 import {
   FETCH_POPULAR_FAILURE,
@@ -7,20 +5,23 @@ import {
   FETCH_POPULAR_SUCCESS,
 } from './popularTypes';
 
-type InitialState = {
+type PopularState = {
   loading: boolean;
   movies: Movie[];
   error: string;
 };
 
 // State
-const initialState: InitialState = {
+const initialState: PopularState = {
   loading: false,
   movies: [],
   error: '',
 };
 
-const popularReducer = (state = initialState, action: UnknownAction) => {
+const popularReducer = (
+  state: PopularState = initialState,
+  action,
+): PopularState => {
   switch (action.type) {
     case FETCH_POPULAR_REQUEST:
       return {

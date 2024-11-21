@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import noImage from '../assets/no-image.svg';
+import useBreakpoints from '../hooks/useBreakpoints';
 import UseFormatDate from '../hooks/useFormatDate';
 import { Movie } from '../types/baseTypes';
 
@@ -11,6 +12,15 @@ type SearchResultsProps = {
 };
 const SearchResults = ({ movies }: SearchResultsProps) => {
   const formatDate = (date: string) => UseFormatDate(date);
+  const { active } = useBreakpoints();
+
+  const formatOverview = (overview: string) => {
+    const amount = active === 'sm' ? 150 : 300;
+    return overview.length > amount
+      ? `${overview.substring(0, amount)}...`
+      : overview;
+  };
+
   return (
     <div className="search-results">
       {movies.map((movie: Movie) => {
@@ -38,7 +48,9 @@ const SearchResults = ({ movies }: SearchResultsProps) => {
 
               <p>{formatDate(movie.release_date)}</p>
 
-              <p className="search-results__movie-overview">{movie.overview}</p>
+              <p className="search-results__movie-overview">
+                {formatOverview(movie.overview)}
+              </p>
             </div>
           </Link>
         );

@@ -5,11 +5,13 @@ import FeaturedMovie from '../components/FeaturedMovie';
 import Hero from '../components/Hero';
 import PopularMovies from '../components/PopularMovies';
 import { fetchPopular } from '../redux/popular/popularActions';
-import { AppDispatch } from '../redux/store';
+import { AppDispatch, RootState } from '../redux/store';
 
 const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const popular = useSelector((state) => state.popular);
+  const popular = useSelector<RootState, RootState['popular']>(
+    (state) => state.popular,
+  );
 
   useEffect(() => {
     dispatch(fetchPopular());

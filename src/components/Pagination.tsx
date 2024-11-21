@@ -1,10 +1,17 @@
 import ReactPaginate from 'react-paginate';
 
-type Props = {
+import './pagination.scss';
+
+type PaginationProps = {
   onPageChange: (pageNumber: string) => void;
   pageCount: number;
+  currentPage: string | null;
 };
-const Pagination = ({ onPageChange, pageCount }: Props) => {
+const Pagination = ({
+  onPageChange,
+  pageCount,
+  currentPage,
+}: PaginationProps) => {
   return (
     <ReactPaginate
       breakLabel="..."
@@ -21,6 +28,7 @@ const Pagination = ({ onPageChange, pageCount }: Props) => {
       activeClassName="pagination__page--active"
       activeLinkClassName="pagination__link--active"
       disabledLinkClassName="pagination__link--disabled"
+      forcePage={currentPage ? parseInt(currentPage) - 1 : 0}
     />
   );
 };

@@ -38,10 +38,13 @@
   &__movie-poster {
     width: toRem(120);
     height: auto;
-    margin-right: toRem(24);
-    // border-radius: toRem(16);
+    margin-right: toRem(16);
     transition: all 0.2s ease-in-out;
     background: $color-gray-400;
+
+    @include breakpoint(medium) {
+      margin-right: toRem(24);
+    }
 
     @include breakpoint(large) {
       width: toRem(188);
@@ -49,6 +52,22 @@
   }
 
   &__movie-title {
-    @include headline2;
+    @include headline3;
+    & {
+      margin-top: 0;
+    }
+
+    @include breakpoint(small) {
+      @include headline2;
+      & {
+        margin-top: toRem(16);
+      }
+    }
+  }
+
+  &__movie-overview {
+    max-height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

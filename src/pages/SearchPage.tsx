@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import HeroSearch from '../components/HeroSearch';
 import Pagination from '../components/Pagination';
 import SearchResults from '../components/SearchResults';
 import { fetchSearchResults } from '../redux/search/searchActions';
 import { AppDispatch, RootState } from '../redux/store';
-import { Movie } from '../types/baseTypes';
 
 const SearchPage = () => {
   const search = useSelector<RootState, RootState['search']>(
@@ -26,6 +25,7 @@ const SearchPage = () => {
   }, [query, page, dispatch]);
 
   const handlePageClick = (pageNumber: string) => {
+    console.log('handlePageClick', pageNumber);
     if (query !== null) setSearchParams({ query: query, page: pageNumber });
   };
 
@@ -48,6 +48,7 @@ const SearchPage = () => {
         <Pagination
           onPageChange={handlePageClick}
           pageCount={search.totalPages}
+          currentPage={page}
         />
       )}
     </div>
