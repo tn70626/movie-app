@@ -26,6 +26,10 @@ $breakpoints-xlarge: 1440px;
     @media (min-width: $breakpoints-xlarge) {
       @content;
     }
+  } @else if $point == small-only {
+    @media (max-width: $breakpoints-small) {
+      @content;
+    }
   }
 }
 
@@ -95,13 +99,16 @@ $breakpoints-xlarge: 1440px;
 
 @mixin button-nav-small {
   @include font-display;
-  color: $color-white;
-  text-decoration: none;
-  padding: toRem(8) toRem(20);
-  border-radius: toRem(20);
-  cursor: pointer;
-  border: none;
-  display: inline-block;
+  & {
+    color: $color-white;
+    text-decoration: none;
+    padding: toRem(8) toRem(20);
+    border-radius: toRem(20);
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    background: none;
+  }
 
   &:hover,
   &.active,
