@@ -1,0 +1,146 @@
+.movie-page {
+  &__backdrop {
+    background-repeat: repeat-x, no-repeat;
+    background-size: auto, cover;
+    background-position: center bottom, center center;
+    height: toRem(220);
+
+    @include breakpoint(small) {
+      height: toRem(300);
+    }
+
+    @include breakpoint(medium) {
+      height: toRem(400);
+    }
+
+    @include breakpoint(large) {
+      height: toRem(500);
+    }
+  }
+
+  &__content {
+    @include container;
+    & {
+      margin-top: toRem(-80);
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    @include breakpoint(small) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+  &__info {
+    width: 100%;
+
+    @include breakpoint(small) {
+      width: auto;
+    }
+  }
+
+  &__poster {
+    order: 1;
+    width: toRem(120);
+    border-radius: toRem(16);
+    margin-right: toRem(16);
+
+    @include breakpoint(small) {
+      order: 0;
+      width: toRem(188);
+      margin-right: toRem(24);
+    }
+  }
+
+  &__title {
+    @include headline2;
+    @include breakpoint(small) {
+      @include headline1;
+    }
+  }
+
+  &__genres {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__genre {
+    margin-right: toRem(16);
+    @include paragraph;
+  }
+
+  .user-score {
+    order: 1;
+    height: toRem(160);
+    width: toRem(160);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include color-gradient-primary;
+    border-radius: toRem(100);
+    overflow: hidden;
+
+    @include breakpoint(small) {
+      order: 0;
+      height: toRem(200);
+      width: toRem(200);
+    }
+
+    &__title {
+      @include headline4;
+      margin: toRem(16) 0 toRem(8);
+
+      @include breakpoint(small) {
+        margin: toRem(24) 0 toRem(8);
+        @include headline3;
+      }
+    }
+
+    &__score {
+      font-size: toRem(64);
+      margin: 0 0;
+      line-height: 1;
+      vertical-align: baseline;
+      padding: 0;
+      @include breakpoint(small) {
+        font-size: toRem(96);
+      }
+    }
+
+    &__percent {
+      font-size: toRem(24);
+      vertical-align: top;
+      padding-top: toRem(10);
+    }
+    &__votes {
+      font-size: toRem(14);
+      font-weight: 700;
+      margin-top: toRem(0);
+      font-style: italic;
+
+      @include breakpoint(small) {
+        font-size: toRem(16);
+      }
+    }
+  }
+  &__error {
+    padding-top: toRem(60);
+    padding-bottom: toRem(60);
+    text-align: center;
+    @include container;
+  }
+  &__cast-title {
+    @include container;
+    @include headline1;
+
+    & {
+      margin-top: toRem(64);
+    }
+  }
+}

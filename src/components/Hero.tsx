@@ -13,6 +13,7 @@ const Hero = () => {
         </h1>
 
         <SearchBar />
+        <div className="hero__gradient-bar" />
       </div>
     </div>
   );

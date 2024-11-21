@@ -1,0 +1,52 @@
+.movie-cast {
+  margin-top: toRem(40);
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-left: toRem(10);
+
+  @include breakpoint(small) {
+    padding-left: calc((100% - 748px) / 2);
+  }
+
+  @include breakpoint(medium) {
+    padding-left: calc((100% - 964px) / 2);
+  }
+
+  @include breakpoint(large) {
+    padding-left: calc((100% - 1220px) / 2);
+  }
+
+  @include breakpoint(xlarge) {
+    padding-left: calc((100% - 1380px) / 2);
+  }
+
+  &__container {
+    text-align: center;
+    margin-right: toRem(40);
+  }
+
+  &__image-container {
+    height: toRem(160);
+    width: toRem(160);
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    width: toRem(160);
+    height: auto;
+  }
+
+  &__name {
+    @include headline3;
+  }
+
+  &__character {
+    @include paragraph;
+    font-style: italic;
+  }
+}

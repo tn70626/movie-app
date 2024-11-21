@@ -35,8 +35,6 @@
   }
 
   &__content {
-    margin-left: toRem(32);
-
     @include breakpoint(medium) {
       margin-left: toRem(40);
     }

@@ -39,3 +39,13 @@
   line-height: 1.2;
   margin-bottom: toRem(16);
 }
+
+@mixin paragraph {
+  @include font-body;
+  font-size: toRem(16);
+  line-height: 1.2;
+
+  @include breakpoint(small) {
+    font-size: toRem(18);
+  }
+}

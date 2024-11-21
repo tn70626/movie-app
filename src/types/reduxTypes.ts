@@ -4,6 +4,9 @@ import {
   FETCH_FEATURED_MOVIE_SUCCESS,
 } from '../redux/featuredMovie/featuredMovieTypes';
 import {
+  FETCH_MOVIE_CAST_FAILURE,
+  FETCH_MOVIE_CAST_REQUEST,
+  FETCH_MOVIE_CAST_SUCCESS,
   FETCH_MOVIE_FAILURE,
   FETCH_MOVIE_REQUEST,
   FETCH_MOVIE_SUCCESS,
@@ -18,7 +21,7 @@ import {
   FETCH_SEARCH_REQUEST,
   FETCH_SEARCH_SUCCESS,
 } from '../redux/search/searchTypes';
-import { Movie, SearchResult } from './baseTypes';
+import { Cast, Movie, SearchResult } from './baseTypes';
 
 // Popular Actions
 export type fetchPopularFailureAction = {
@@ -96,10 +99,27 @@ export type fetchMovieSuccessAction = {
   payload: Movie;
 };
 
+export type fetchMovieCastFailureAction = {
+  type: typeof FETCH_MOVIE_CAST_FAILURE;
+  payload: string;
+};
+
+export type fetchMovieCastRequestAction = {
+  type: typeof FETCH_MOVIE_CAST_REQUEST;
+};
+
+export type fetchMovieCastSuccessAction = {
+  type: typeof FETCH_MOVIE_CAST_SUCCESS;
+  payload: Cast[];
+};
+
 export type MovieActionTypes =
   | fetchMovieFailureAction
   | fetchMovieRequestAction
-  | fetchMovieSuccessAction;
+  | fetchMovieSuccessAction
+  | fetchMovieCastFailureAction
+  | fetchMovieCastRequestAction
+  | fetchMovieCastSuccessAction;
 
 export type AppActions =
   | PopularActionTypes

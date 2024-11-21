@@ -40,10 +40,24 @@
     }
     @include breakpoint(small) {
       @include headline2;
-      margin: 0 0 toRem(40);
+      & {
+        margin: 0 0 toRem(40);
+      }
     }
     @include breakpoint(medium) {
       @include headline1;
+      & {
+        margin: 0 0 toRem(40);
+      }
+    }
+  }
+  &__gradient-bar {
+    @include color-gradient-border;
+
+    & {
+      margin-top: toRem(40);
+      height: toRem(1);
+      width: 100%;
     }
   }
 }
