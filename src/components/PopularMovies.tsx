@@ -2,17 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Movie } from '../types/baseTypes';
+import Loading from './Loading';
 
 import './popular-movies.scss';
 
 type PopularMoviesProps = {
   movies: Movie[];
   loading: boolean;
+  error: string;
 };
 
-const PopularMovies: React.FC<PopularMoviesProps> = ({ movies, loading }) => {
+const PopularMovies: React.FC<PopularMoviesProps> = ({
+  movies,
+  loading,
+  error,
+}) => {
   const renderMovies = (movies: Movie[]) => {
-    if (movies.length) {
+    if (movies.length > 0) {
       return (
         <div className="movie-tiles">
           {movies.map((movie, index) => {
@@ -34,14 +40,19 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ movies, loading }) => {
         </div>
       );
     } else {
-      return <h2>No movies found.</h2>;
+      return (
+        <div className="popular-movies__error">
+          <h2>Unable to load popular movies</h2>
+          {error && <p>{error}</p>}
+        </div>
+      );
     }
   };
 
   return (
     <div className="popular-movies">
       <h2 className="popular-movies__title">Popular</h2>
-      {loading ? <div>Loading...</div> : renderMovies(movies)}
+      {loading ? <Loading /> : renderMovies(movies)}
     </div>
   );
 };

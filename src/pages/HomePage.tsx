@@ -22,7 +22,11 @@ const HomePage: React.FC = () => {
     <div className="home-page">
       <Hero />
 
-      <PopularMovies movies={popular.movies} loading={popular.loading} />
+      <PopularMovies
+        movies={popular.movies}
+        loading={popular.loading}
+        error={popular.error}
+      />
 
       <FeaturedMovie />
     </div>
