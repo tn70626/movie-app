@@ -29,8 +29,16 @@ const MoviePage: React.FC = () => {
     }
   }, [params.movieId, dispatch]);
 
+  // Calculate users score % out of 100
   const calcUserScore = (score: number): number => {
     return Math.floor(score * 10);
+  };
+
+  // Calculate runtime to h and m
+  const calcRuntime = (runtime: number) => {
+    const hours = Math.floor(runtime / 60);
+    const minutes = runtime % 60;
+    return `${hours}h ${minutes}m`;
   };
 
   return (
@@ -57,18 +65,24 @@ const MoviePage: React.FC = () => {
               <p className="movie-page__date">
                 {UseFormatDate(movie.movie.release_date)}
               </p>
-              {movie.movie.genres.length > 0 && (
-                <ul className="movie-page__genres">
-                  {' '}
-                  {movie.movie.genres.map((genre) => {
-                    return (
-                      <li className="movie-page__genre" key={genre.id}>
-                        {genre.name}
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
+
+              <p className="movie-page__details">
+                {
+                  // Genres
+                  movie.movie.genres.length > 0 &&
+                    movie.movie.genres.reduce((genresString, genre, index) => {
+                      if (index === 0) return genresString + genre.name;
+                      return genresString + ', ' + genre.name;
+                    }, '')
+                }
+
+                {
+                  // Runtime
+                  movie.movie.runtime &&
+                    ` | ${calcRuntime(movie.movie.runtime)}`
+                }
+              </p>
+
               <p className="movie-page__overview">{movie.movie.overview}</p>
             </div>
             <div className="movie-page__user-score user-score">

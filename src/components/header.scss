@@ -3,21 +3,21 @@
   & {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: toRem(20);
+    padding-bottom: toRem(20);
     align-items: center;
   }
   @include breakpoint(large) {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: toRem(32);
+    padding-bottom: toRem(32);
   }
 
   &__logo {
-    height: 20px;
+    height: toRem(20);
     width: auto;
 
     @include breakpoint(small) {
-      height: 36px;
+      height: toRem(36);
       width: auto;
     }
   }

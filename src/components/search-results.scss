@@ -78,7 +78,7 @@
   }
 
   &__movie-overview {
-    max-height: 200px;
+    max-height: toRem(200);
     overflow: hidden;
     text-overflow: ellipsis;
   }

@@ -34,6 +34,7 @@ export type Movie = {
   vote_average: number;
   vote_count: number;
   genres: Genre[];
+  runtime: number;
 };
 
 export type SearchResult = {

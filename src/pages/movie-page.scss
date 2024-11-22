@@ -38,6 +38,7 @@
 
     @include breakpoint(small) {
       width: auto;
+      margin-right: toRem(16);
     }
   }
 
@@ -61,15 +62,7 @@
     }
   }
 
-  &__genres {
-    padding: 0;
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__genre {
-    margin-right: toRem(16);
+  &__details {
     @include paragraph;
   }
 

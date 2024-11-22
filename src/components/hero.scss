@@ -1,6 +1,6 @@
 .hero {
   background: url('../assets/hero-bg.jpg') no-repeat;
-  background-size: auto 300px;
+  background-size: auto toRem(300);
   background-position: top center;
   margin-bottom: toRem(40);
   overflow: hidden;
@@ -10,7 +10,7 @@
   }
 
   @include breakpoint(medium) {
-    background-size: auto 630px;
+    background-size: auto toRem(630);
   }
 
   &__image {

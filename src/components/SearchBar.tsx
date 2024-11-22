@@ -37,6 +37,7 @@ const SearchBar: React.FC = () => {
         placeholder="Search for a movie"
         className="search-bar__input"
         onKeyDown={handleKeyDown}
+        id="search"
       />
 
       <button className="search-bar__button" onClick={() => handleSearch()}>

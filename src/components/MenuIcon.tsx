@@ -14,6 +14,7 @@ const MenuIcon: React.FC<MenuIconProps> = ({
     <button
       onClick={toggleActive}
       className={active ? 'menu-icon open' : 'menu-icon'}
+      aria-label={active ? 'close navigation menu' : 'open navigation menu'}
     >
       <span></span>
       <span></span>

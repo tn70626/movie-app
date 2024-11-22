@@ -5,7 +5,7 @@
     margin: toRem(40) 0;
 
     & {
-      height: 400px;
+      height: toRem(400);
     }
   }
   &__heading {

@@ -65,22 +65,22 @@
       color: $color-blue-700;
       text-decoration: none;
       position: absolute;
-      padding: 12px 12px 12px 24px;
+      padding: toRem(12) toRem(12) toRem(12) toRem(24);
       @include color-gradient-primary;
       bottom: toRem(35);
       right: 0;
-      border-radius: 50px 0 0 50px;
+      border-radius: 50px 0 0 toRem(50);
 
       @include breakpoint(medium) {
         font-size: toRem(32);
         bottom: toRem(24);
-        padding: 16px 16px 16px 40px;
+        padding: toRem(16) toRem(16) toRem(16) toRem(40);
       }
 
       @include breakpoint(large) {
         font-size: toRem(46);
         bottom: toRem(35);
-        padding: 20px 20px 20px 60px;
+        padding: toRem(20) toRem(20) toRem(20) toRem(60);
       }
     }
   }

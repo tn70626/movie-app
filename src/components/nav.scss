@@ -6,7 +6,7 @@
       & {
         position: absolute;
         top: 0;
-        right: -20px;
+        right: toRem(-20);
         z-index: 1;
         background: $color-black-secondary;
         width: 100vw;
@@ -21,7 +21,7 @@
       &.active {
         opacity: 1;
 
-        height: 235px;
+        height: toRem(235);
       }
     }
 

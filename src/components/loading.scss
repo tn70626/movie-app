@@ -13,32 +13,32 @@
 .lds-ellipsis {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: toRem(80);
+  height: toRem(80);
 }
 .lds-ellipsis div {
   position: absolute;
-  top: 33.33333px;
-  width: 13.33333px;
-  height: 13.33333px;
+  top: toRem(33.33333);
+  width: toRem(13.33333);
+  height: toRem(13.33333);
   border-radius: 50%;
   background: $color-blue-500;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
-  left: 8px;
+  left: toRem(8);
   animation: lds-ellipsis1 0.7s infinite;
 }
 .lds-ellipsis div:nth-child(2) {
-  left: 8px;
+  left: toRem(8);
   animation: lds-ellipsis2 0.7s infinite;
 }
 .lds-ellipsis div:nth-child(3) {
-  left: 32px;
+  left: toRem(32);
   animation: lds-ellipsis2 0.7s infinite;
 }
 .lds-ellipsis div:nth-child(4) {
-  left: 56px;
+  left: toRem(56);
   animation: lds-ellipsis3 0.7s infinite;
 }
 @keyframes lds-ellipsis1 {

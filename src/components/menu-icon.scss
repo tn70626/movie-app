@@ -1,6 +1,6 @@
 .menu-icon {
-  width: 36px;
-  height: 30px;
+  width: toRem(36);
+  height: toRem(30);
   position: relative;
   margin: 0;
   -webkit-transform: rotate(0deg);
@@ -19,10 +19,10 @@
   span {
     display: block;
     position: absolute;
-    height: 5px;
+    height: toRem(5);
     width: 100%;
     background: $color-blue-500;
-    border-radius: 9px;
+    border-radius: toRem(9);
     opacity: 1;
     left: 0;
     -webkit-transform: rotate(0deg);
@@ -36,7 +36,7 @@
   }
 
   span:nth-child(1) {
-    top: 0px;
+    top: toRem(0);
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     -o-transform-origin: left center;
@@ -44,7 +44,7 @@
   }
 
   span:nth-child(2) {
-    top: 12px;
+    top: toRem(12);
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     -o-transform-origin: left center;
@@ -52,7 +52,7 @@
   }
 
   span:nth-child(3) {
-    top: 24px;
+    top: toRem(24);
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     -o-transform-origin: left center;
@@ -64,8 +64,8 @@
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
-    top: -3px;
-    left: 4px;
+    top: toRem(-3);
+    left: toRem(4);
   }
 
   &.open span:nth-child(2) {
@@ -78,7 +78,7 @@
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    top: 22px;
-    left: 4px;
+    top: toRem(22);
+    left: toRem(4);
   }
 }
