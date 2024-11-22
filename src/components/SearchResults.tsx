@@ -24,12 +24,13 @@ const SearchResults: React.FC<SearchResultsProps> = ({ movies }) => {
 
   return (
     <div className="search-results">
-      {movies.map((movie: Movie) => {
+      {movies.map((movie: Movie, index) => {
         return (
           <Link
             className="search-results__movie"
             key={movie.id}
             to={`/movie/${movie.id}`}
+            style={{ animationDelay: `${index * 0.1}s` }}
           >
             <img
               className="search-results__movie-poster"
