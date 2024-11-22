@@ -40,7 +40,8 @@
       transition: all 0.2s ease-in-out;
       border-radius: toRem(16);
 
-      &:hover {
+      &:hover,
+      &:focus {
         transform: scale(1);
       }
     }

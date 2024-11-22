@@ -11,12 +11,15 @@ const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   return (
     <nav className="nav">
-      {active === 'sm' && (
-        <MenuIcon
-          active={isMenuOpen}
-          toggleActive={() => setIsMenuOpen(!isMenuOpen)}
-        />
-      )}
+      {
+        // mobile navigation
+        active === 'sm' && (
+          <MenuIcon
+            active={isMenuOpen}
+            toggleActive={() => setIsMenuOpen(!isMenuOpen)}
+          />
+        )
+      }
       <ul className={isMenuOpen ? 'nav__ul active' : 'nav__ul'}>
         <li className="nav__li">
           <NavLink
@@ -28,12 +31,18 @@ const Nav: React.FC = () => {
           </NavLink>
         </li>
         <li className="nav__li">
-          <button className="nav__button" onClick={() => setIsMenuOpen(false)}>
+          <button
+            className="nav__button nav__button--coming-soon"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Movies
           </button>
         </li>
         <li className="nav__li">
-          <button className="nav__button" onClick={() => setIsMenuOpen(false)}>
+          <button
+            className="nav__button nav__button--coming-soon"
+            onClick={() => setIsMenuOpen(false)}
+          >
             TV Shows
           </button>
         </li>
