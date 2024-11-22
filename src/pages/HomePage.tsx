@@ -17,6 +17,8 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     // Fetch popular movies data
     dispatch(fetchPopular());
+    // Set page title
+    document.title = 'Movie App';
   }, [dispatch]);
 
   return (
