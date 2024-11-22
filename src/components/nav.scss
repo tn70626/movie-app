@@ -36,8 +36,8 @@
   }
 
   &__button {
-    @include button-nav-small;
     position: relative;
+    @include button-nav-small;
 
     & {
       @include breakpoint(small-only) {
