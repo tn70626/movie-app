@@ -14,6 +14,7 @@ import { AppDispatch, RootState } from '../redux/store';
 import './movie-page.scss';
 
 const MoviePage: React.FC = () => {
+  // Retrieve movieId from params
   const params = useParams<{ movieId: string | undefined }>();
   const movie = useSelector(
     (state: RootState): RootState['movie'] => state.movie,
@@ -22,6 +23,7 @@ const MoviePage: React.FC = () => {
 
   useEffect(() => {
     if (params.movieId) {
+      // Fetch movie and cast data
       dispatch(fetchMovie(params.movieId));
       dispatch(fetchMovieCast(params.movieId));
     }

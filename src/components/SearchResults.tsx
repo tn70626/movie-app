@@ -15,6 +15,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ movies }) => {
   const formatDate = (date: string) => UseFormatDate(date);
   const { active } = useBreakpoints();
 
+  // Truncate overview text for device width
   const formatOverview = (overview: string) => {
     const amount = active === 'sm' ? 150 : 300;
     return overview.length > amount

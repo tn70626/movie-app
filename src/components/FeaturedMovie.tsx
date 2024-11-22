@@ -14,6 +14,7 @@ const FeaturedMovie: React.FC = () => {
   const movieId = 698687;
 
   useEffect(() => {
+    // Fetch featured movie data
     dispatch(fetchFeatureMovie(`${movieId}`));
   }, [dispatch]);
 

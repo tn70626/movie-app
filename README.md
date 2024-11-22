@@ -1,50 +1,49 @@
-# React + TypeScript + Vite
+# The Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The Movie App is a dynamic web application built using React JS, Vite, and TypeScript, designed to provide users with an immersive movie discovery experience. By integrating The Movie Database (TMDb) API, the app allows users to explore a wide variety of movies, search for specific titles, and view detailed information on each movie.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+Vite requires Node.js version 18+ or 20+. Visit https://nodejs.org/en/download/package-manager to download Node.js and installation instructions.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Clone the application
 
-- Configure the top-level `parserOptions` property like this:
+Clone the The Movie App to your local computer from https://github.com/tn70626/movie-app. GitHub cloning instructions may be found here: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Once the application is cloned, navigate to the root directory of the `movie-app` and include the `.env` file supplied from the developer.
+
+### Install dependencies
+
+From the root directory of the `movie-app`, install dependencies using NPM using command line.
+
+```
+ npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Launch Application
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+After installing dependencies, from the root directory of the `movie-app` in command line, run the application using:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm run dev
+```
+
+The application will be started and `Vite` will share the local address of the application. Example:
+
+```
+> movie-app@0.0.0 dev
+> vite
+
+
+  VITE v5.4.11  ready in 90 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+Copy and paste the localhost address into a browser to the enjoy The Movie App!
+
+To end the local application, press `^C` within your command line program.

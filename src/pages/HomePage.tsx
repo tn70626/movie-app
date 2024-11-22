@@ -15,6 +15,7 @@ const HomePage: React.FC = () => {
   );
 
   useEffect(() => {
+    // Fetch popular movies data
     dispatch(fetchPopular());
   }, [dispatch]);
 

@@ -16,17 +16,19 @@ const SearchPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // Retrieve query and page parameters
   const query = searchParams.get('query');
   const page = searchParams.get('page');
 
   useEffect(() => {
+    // Fetch search results when query or page changes
     if (query !== null) {
       dispatch(fetchSearchResults(query, page));
     }
   }, [query, page, dispatch]);
 
+  // SetSearch Params for page updates
   const handlePageClick = (pageNumber: string) => {
-    console.log('handlePageClick', pageNumber);
     if (query !== null) setSearchParams({ query: query, page: pageNumber });
   };
 
